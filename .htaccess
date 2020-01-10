@@ -1,0 +1,5 @@
+SetEnv HTTP_DB_HOST "localhost"
+SetEnv HTTP_DB_USERNAME "root"
+SetEnv HTTP_DB_PASSWORD ""
+SetEnv HTTP_DB_DBNAME "private_chat"
+SetEnv HTTP_JWT_PASSWORD ""
