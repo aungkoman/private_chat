@@ -52,8 +52,7 @@ class room
       $stmt->close();
       if($affected_rows > 0 ){
         $data = $result->fetch_all(MYSQLI_ASSOC);
-        $return_data = array(true,$data[0]['id']);
-        return $return_data;
+        return $data[0]['id'];
       }else{
         return_fail('room code does not match with any room');
       }

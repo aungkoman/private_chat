@@ -53,7 +53,7 @@ class member
         }
         $insert_id = $this->conn->insert_id;
         $stmt->close();
-        return_success("room_joined",$room[1]);
+        return_success("room_joined",$room);
     }
         
     public function login($member){
