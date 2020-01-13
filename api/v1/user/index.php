@@ -27,7 +27,7 @@ switch ($method) {
 	case 'POST':
         $request_data = $_POST;
         if(!isset($request_data['ops_type'])){
-            return_fail('ops_type has to be provided in request');
+            return_fail('ops_type has to be provided in request :'.json_encode($request_data));
         }
 		$ops_type = (string) $request_data['ops_type'];
 		//$jwt = $request_data['jwt'];

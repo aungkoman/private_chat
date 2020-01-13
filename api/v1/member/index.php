@@ -54,6 +54,9 @@ switch ($method) {
             case 'select_all':
                 $member->select_all();
                 break;
+            case 'room_list':
+                $member->room_list($request_data);
+                break;
             default :
                 return_fail('unknow_ops_type',$ops_type);
                 break;
