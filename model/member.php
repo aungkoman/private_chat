@@ -8,10 +8,14 @@ class member
 
     public function owner_join($member){
         // restrict member input data
+        //echo "member data => ".json_encode($member);
+
         $room = (int) isset($member['room']) ? $member['room'] : null;
         $user = (int) isset($member['user']) ? $member['user'] : null;
         $created_date = date("Y-m-d");
         $modified_date = date("Y-m-d");
+
+        //echo "room : user => ".$room." , ".$user;
 
         $sql = "INSERT INTO member (room, user, created_date, modified_date) VALUES (?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
@@ -27,7 +31,9 @@ class member
             return_fail('execute_failed',htmlspecialchars($this->conn->errno).":".htmlspecialchars($stmt->error));
         }
         $insert_id = $this->conn->insert_id;
+        //echo "insertted id ".$insert_id;
         $stmt->close();
+
         return array("status" => true,"member_id"=>$insert_id);
     }
     public function register($member){

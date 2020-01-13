@@ -146,12 +146,13 @@ public function select($message){
   $user = (int) isset($message['user']) ? $message['user'] : null;
   $room = (int) isset($message['room']) ? $message['room'] : null;
   $id = (int) isset($message['room']) ? $message['id'] : 0 ;
+  //echo "message is ".json_encode($message);
   $sql = "select message.* from message, member WHERE message.room = ? AND member.user = ? AND message.room = member.room AND message.id > ? GROUP BY message.id LIMIT 10";
   $stmt = $this->conn->prepare($sql);
   if ( false===$stmt ) {
       return_fail('prepare_failed', htmlspecialchars($this->conn->error));
   }
-  $rc = $stmt->bind_param("iii",$user, $room,$id);
+  $rc = $stmt->bind_param("iii", $room,$user,$id);
   if ( false===$rc ) {
       return_fail('bind_param_failed',htmlspecialchars($stmt->error));
   }
