@@ -131,7 +131,7 @@ class user
     }
 
     public function delete($user){
-      $id = $user['dbid_id'];
+      $id = $user['id'];
       $sql = "DELETE FROM user WHERE id = ".$id;
       if ($this->conn->query($sql) === TRUE) {
         if(mysqli_affected_rows($this->conn) > 0) return $this->return_success("user deleted record");
